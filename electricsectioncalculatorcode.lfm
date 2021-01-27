@@ -1,0 +1,93 @@
+object Form1: TForm1
+  Left = 220
+  Height = 269
+  Top = 152
+  Width = 396
+  Caption = 'Form1'
+  ClientHeight = 269
+  ClientWidth = 396
+  OnCreate = FormCreate
+  LCLVersion = '2.0.10.0'
+  object LabeledEdit1: TLabeledEdit
+    Left = 200
+    Height = 23
+    Top = 16
+    Width = 184
+    EditLabel.Height = 15
+    EditLabel.Width = 75
+    EditLabel.Caption = 'Length in mm'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 0
+    Text = 'LabeledEdit1'
+    OnChange = LabeledEdit1Change
+    OnKeyPress = LabeledEdit1KeyPress
+  end
+  object LabeledEdit2: TLabeledEdit
+    Left = 200
+    Height = 23
+    Top = 56
+    Width = 184
+    EditLabel.Height = 15
+    EditLabel.Width = 77
+    EditLabel.Caption = 'Power in watts'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 1
+    Text = 'LabeledEdit2'
+    OnChange = LabeledEdit2Change
+    OnKeyPress = LabeledEdit2KeyPress
+  end
+  object LabeledEdit3: TLabeledEdit
+    Left = 184
+    Height = 23
+    Top = 96
+    Width = 200
+    EditLabel.Height = 15
+    EditLabel.Width = 101
+    EditLabel.Caption = 'Resistance in ohms'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 2
+    Text = 'LabeledEdit3'
+    OnChange = LabeledEdit3Change
+    OnKeyPress = LabeledEdit3KeyPress
+  end
+  object LabeledEdit4: TLabeledEdit
+    Left = 200
+    Height = 23
+    Top = 136
+    Width = 184
+    EditLabel.Height = 15
+    EditLabel.Width = 116
+    EditLabel.Caption = 'Amperage in amperes'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 3
+    Text = 'LabeledEdit4'
+    OnChange = LabeledEdit4Change
+    OnKeyPress = LabeledEdit4KeyPress
+  end
+  object LabeledEdit5: TLabeledEdit
+    Left = 200
+    Height = 23
+    Top = 176
+    Width = 184
+    EditLabel.Height = 15
+    EditLabel.Width = 110
+    EditLabel.Caption = 'Electric cable section'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 4
+    Text = 'LabeledEdit5'
+  end
+  object Button1: TButton
+    Left = 136
+    Height = 25
+    Top = 224
+    Width = 160
+    Caption = 'Calculate'
+    OnClick = Button1Click
+    TabOrder = 5
+  end
+end
