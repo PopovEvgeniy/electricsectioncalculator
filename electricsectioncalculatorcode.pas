@@ -35,13 +35,7 @@ type
     { public declarations }
   end; 
 
-  var Form1: TForm1;
-  procedure restrict_input(var key:char);
-  procedure window_setup();
-  procedure interface_setup();
-  procedure language_setup();
-  procedure setup();
-  function calculate_section(const measures:extended;const resistance:extended;const amperage:extended;const power:extended): extended;
+var Form1: TForm1;
 
 implementation
 
@@ -51,13 +45,9 @@ procedure restrict_input(var key:char);
 begin
  if (ord(key)<ord('0')) or (ord(key)>ord('9')) then
  begin
-  if key<>'.' then
+  if (key<>'.') or (key<>',') then
   begin
-   if key<>',' then
-   begin
-    if ord(key)<>VK_BACK then key:=#0;
-   end;
-
+   if ord(key)<>VK_BACK then key:=#0;
   end;
 
  end;
@@ -67,7 +57,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Electrical cable section calculator';
- Form1.Caption:='Electrical cable section calculator 1.4.9';
+ Form1.Caption:='Electrical cable section calculator 1.5';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
