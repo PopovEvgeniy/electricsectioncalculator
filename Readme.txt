@@ -1,6 +1,6 @@
            Electrical cable section calculator
                       
-                      Version 1.5
+                      Version 1.5.0.1
 
              This software made by Popov Evgeniy Alekseyevich
 
@@ -36,7 +36,8 @@ Version history
 1.4 - Russian localization removed
 1.4.1 - 1.4.5 - Small changes
 1.4.6 - 64 bit support added
-1.4.7 - User interface impoved
+1.4.7 - User interface improved
 1.4.8 - Small bug fixed
 1.4.9 - Project name changed
 1.5 - Small changes
+1.5.0.1 - Documentation updated
