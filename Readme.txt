@@ -1,13 +1,13 @@
            Electrical cable section calculator
                       
-                      Version 1.5.0.1
+                      Version 1.5.0.2
 
              This software made by Popov Evgeniy Alekseyevich
 
 System requirements
 
-Windows 2000 or higher for 32 bit system
-Windows Vista or higher for 64 bit system
+Windows 2000 or higher for 32-bit system
+Windows Vista or higher for 64-bit system
 
 Program description
 
@@ -35,9 +35,9 @@ Version history
 1.3.1 - Small changes in source code
 1.4 - Russian localization removed
 1.4.1 - 1.4.5 - Small changes
-1.4.6 - 64 bit support added
+1.4.6 - 64-bit support added
 1.4.7 - User interface improved
 1.4.8 - Small bug fixed
 1.4.9 - Project name changed
 1.5 - Small changes
-1.5.0.1 - Documentation updated
+1.5.0.1 - 1.5.0.2 - Documentation updated
