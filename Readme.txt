@@ -1,6 +1,6 @@
            Electrical cable section calculator
                       
-                      Version 1.5.0.8
+                      Version 1.5.1
 
              This software was made by Popov Evgeniy Alekseyevich
 
@@ -20,7 +20,7 @@ This program is distributed under GNU GENERAL PUBLIC LICENSE.
 About program modification
 
 The code is included in the source.zip archive.
-It can be compiled under Lazarus 2.2.2 or higher.
+It can be compiled under Lazarus 4.0 RC1 or higher.
 
 Feedback
 
@@ -41,3 +41,4 @@ Version history
 1.4.9: The project name has changed.
 1.5: The small changes.
 1.5.0.1-1.5.0.8: The documentation has been updated.
+1.5.1: The source code was recompiled under Lazarus 4.0 RC1.
