@@ -10,32 +10,32 @@ uses
 
 type
 
-  { TForm1 }
+  { TMainWindow }
 
-  TForm1 = class(TForm)
-    Button1: TButton;
-    LabeledEdit1: TLabeledEdit;
-    LabeledEdit2: TLabeledEdit;
-    LabeledEdit3: TLabeledEdit;
-    LabeledEdit4: TLabeledEdit;
-    LabeledEdit5: TLabeledEdit;
-    procedure Button1Click(Sender: TObject);
+  TMainWindow = class(TForm)
+    CalculateButton: TButton;
+    LengthField: TLabeledEdit;
+    PowerField: TLabeledEdit;
+    ResistanceField: TLabeledEdit;
+    AmperageField: TLabeledEdit;
+    SectionField: TLabeledEdit;
+    procedure CalculateButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure LabeledEdit1Change(Sender: TObject);
-    procedure LabeledEdit1KeyPress(Sender: TObject; var Key: char);
-    procedure LabeledEdit2Change(Sender: TObject);
-    procedure LabeledEdit2KeyPress(Sender: TObject; var Key: char);
-    procedure LabeledEdit3Change(Sender: TObject);
-    procedure LabeledEdit3KeyPress(Sender: TObject; var Key: char);
-    procedure LabeledEdit4Change(Sender: TObject);
-    procedure LabeledEdit4KeyPress(Sender: TObject; var Key: char);
+    procedure LengthFieldChange(Sender: TObject);
+    procedure LengthFieldKeyPress(Sender: TObject; var Key: char);
+    procedure PowerFieldChange(Sender: TObject);
+    procedure PowerFieldKeyPress(Sender: TObject; var Key: char);
+    procedure ResistanceFieldChange(Sender: TObject);
+    procedure ResistanceFieldKeyPress(Sender: TObject; var Key: char);
+    procedure AmperageFieldChange(Sender: TObject);
+    procedure AmperageFieldKeyPress(Sender: TObject; var Key: char);
   private
     { private declarations }
   public
     { public declarations }
   end; 
 
-var Form1: TForm1;
+var MainWindow: TMainWindow;
 
 implementation
 
@@ -57,37 +57,37 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Electrical cable section calculator';
- Form1.Caption:='Electrical cable section calculator 1.5.1';
- Form1.BorderStyle:=bsDialog;
- Form1.Font.Name:=Screen.MenuFont.Name;
- Form1.Font.Size:=14;
+ MainWindow.Caption:='Electrical cable section calculator 1.5.2';
+ MainWindow.BorderStyle:=bsDialog;
+ MainWindow.Font.Name:=Screen.MenuFont.Name;
+ MainWindow.Font.Size:=14;
 end;
 
 procedure interface_setup();
 begin
- Form1.Button1.ShowHint:=False;
- Form1.Button1.Enabled:=False;
- Form1.LabeledEdit5.Enabled:=False;
- Form1.LabeledEdit1.LabelPosition:=lpLeft;
- Form1.LabeledEdit2.LabelPosition:=Form1.LabeledEdit1.LabelPosition;
- Form1.LabeledEdit3.LabelPosition:=Form1.LabeledEdit1.LabelPosition;
- Form1.LabeledEdit4.LabelPosition:=Form1.LabeledEdit1.LabelPosition;
- Form1.LabeledEdit5.LabelPosition:=Form1.LabeledEdit1.LabelPosition;
- Form1.LabeledEdit1.Text:='';
- Form1.LabeledEdit2.Text:=Form1.LabeledEdit1.Text;
- Form1.LabeledEdit3.Text:=Form1.LabeledEdit1.Text;
- Form1.LabeledEdit4.Text:=Form1.LabeledEdit1.Text;
- Form1.LabeledEdit5.Text:=Form1.LabeledEdit1.Text;
+ MainWindow.CalculateButton.ShowHint:=False;
+ MainWindow.CalculateButton.Enabled:=False;
+ MainWindow.SectionField.Enabled:=False;
+ MainWindow.LengthField.LabelPosition:=lpLeft;
+ MainWindow.PowerField.LabelPosition:=MainWindow.LengthField.LabelPosition;
+ MainWindow.ResistanceField.LabelPosition:=MainWindow.LengthField.LabelPosition;
+ MainWindow.AmperageField.LabelPosition:=MainWindow.LengthField.LabelPosition;
+ MainWindow.SectionField.LabelPosition:=MainWindow.LengthField.LabelPosition;
+ MainWindow.LengthField.Text:='';
+ MainWindow.PowerField.Text:=MainWindow.LengthField.Text;
+ MainWindow.ResistanceField.Text:=MainWindow.LengthField.Text;
+ MainWindow.AmperageField.Text:=MainWindow.LengthField.Text;
+ MainWindow.SectionField.Text:=MainWindow.LengthField.Text;
 end;
 
 procedure language_setup();
 begin
- Form1.Button1.Caption:='Calculate';
- Form1.LabeledEdit1.EditLabel.Caption:='Length in mm';
- Form1.LabeledEdit2.EditLabel.Caption:='Power in watts';
- Form1.LabeledEdit3.EditLabel.Caption:='Resistance in ohms';
- Form1.LabeledEdit4.EditLabel.Caption:='Amperage in amperes';
- Form1.LabeledEdit5.EditLabel.Caption:='Electric cable section';
+ MainWindow.CalculateButton.Caption:='Calculate';
+ MainWindow.LengthField.EditLabel.Caption:='Length in mm';
+ MainWindow.PowerField.EditLabel.Caption:='Power in watts';
+ MainWindow.ResistanceField.EditLabel.Caption:='Resistance in ohms';
+ MainWindow.AmperageField.EditLabel.Caption:='Amperage in amperes';
+ MainWindow.SectionField.EditLabel.Caption:='Electric cable section';
 end;
 
 procedure setup();
@@ -97,9 +97,9 @@ begin
  language_setup();
 end;
 
-{ TForm1 }
+{ TMainWindow }
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TMainWindow.FormCreate(Sender: TObject);
 begin
  setup();
 end;
@@ -109,62 +109,62 @@ begin
  calculate_section:=(measures*resistance*amperage*amperage)/power;
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TMainWindow.CalculateButtonClick(Sender: TObject);
 var section:double;
 begin
- Form1.LabeledEdit5.Text:='';
- if StrToFloat(Form1.LabeledEdit2.Text)=0 then
+ MainWindow.SectionField.Text:='';
+ if StrToFloat(MainWindow.PowerField.Text)=0 then
  begin
   ShowMessage('Invalid power');
  end
  else
  begin
-  section:=calculate_section(StrToFloat(LabeledEdit1.Text),StrToFloat(LabeledEdit3.Text),StrToFloat(LabeledEdit4.Text),StrToFloat(LabeledEdit2.Text));
-  Form1.LabeledEdit5.Text:=FloatToStr(section);
+  section:=calculate_section(StrToFloat(LengthField.Text),StrToFloat(ResistanceField.Text),StrToFloat(AmperageField.Text),StrToFloat(PowerField.Text));
+  MainWindow.SectionField.Text:=FloatToStr(section);
  end;
 
 end;
 
-procedure TForm1.LabeledEdit1Change(Sender: TObject);
+procedure TMainWindow.LengthFieldChange(Sender: TObject);
 begin
- Form1.Button1.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'') and (Form1.LabeledEdit3.Text<>'') and (Form1.LabeledEdit4.Text<>'');
+ MainWindow.CalculateButton.Enabled:=(MainWindow.LengthField.Text<>'') and (MainWindow.PowerField.Text<>'') and (MainWindow.ResistanceField.Text<>'') and (MainWindow.AmperageField.Text<>'');
 end;
 
-procedure TForm1.LabeledEdit1KeyPress(Sender: TObject; var Key: char);
-begin
- restrict_input(Key);
-end;
-
-procedure TForm1.LabeledEdit2Change(Sender: TObject);
-begin
- Form1.Button1.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'') and (Form1.LabeledEdit3.Text<>'') and (Form1.LabeledEdit4.Text<>'');
-end;
-
-procedure TForm1.LabeledEdit2KeyPress(Sender: TObject; var Key: char);
+procedure TMainWindow.LengthFieldKeyPress(Sender: TObject; var Key: char);
 begin
  restrict_input(Key);
 end;
 
-procedure TForm1.LabeledEdit3Change(Sender: TObject);
+procedure TMainWindow.PowerFieldChange(Sender: TObject);
 begin
- Form1.Button1.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'') and (Form1.LabeledEdit3.Text<>'') and (Form1.LabeledEdit4.Text<>'');
+ MainWindow.CalculateButton.Enabled:=(MainWindow.LengthField.Text<>'') and (MainWindow.PowerField.Text<>'') and (MainWindow.ResistanceField.Text<>'') and (MainWindow.AmperageField.Text<>'');
 end;
 
-procedure TForm1.LabeledEdit3KeyPress(Sender: TObject; var Key: char);
-begin
- restrict_input(Key);
-end;
-
-procedure TForm1.LabeledEdit4Change(Sender: TObject);
-begin
- Form1.Button1.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'') and (Form1.LabeledEdit3.Text<>'') and (Form1.LabeledEdit4.Text<>'');
-end;
-
-procedure TForm1.LabeledEdit4KeyPress(Sender: TObject; var Key: char);
+procedure TMainWindow.PowerFieldKeyPress(Sender: TObject; var Key: char);
 begin
  restrict_input(Key);
 end;
 
-{ TForm1 }
+procedure TMainWindow.ResistanceFieldChange(Sender: TObject);
+begin
+ MainWindow.CalculateButton.Enabled:=(MainWindow.LengthField.Text<>'') and (MainWindow.PowerField.Text<>'') and (MainWindow.ResistanceField.Text<>'') and (MainWindow.AmperageField.Text<>'');
+end;
+
+procedure TMainWindow.ResistanceFieldKeyPress(Sender: TObject; var Key: char);
+begin
+ restrict_input(Key);
+end;
+
+procedure TMainWindow.AmperageFieldChange(Sender: TObject);
+begin
+ MainWindow.CalculateButton.Enabled:=(MainWindow.LengthField.Text<>'') and (MainWindow.PowerField.Text<>'') and (MainWindow.ResistanceField.Text<>'') and (MainWindow.AmperageField.Text<>'');
+end;
+
+procedure TMainWindow.AmperageFieldKeyPress(Sender: TObject; var Key: char);
+begin
+ restrict_input(Key);
+end;
+
+{ TMainWindow }
 
 end.

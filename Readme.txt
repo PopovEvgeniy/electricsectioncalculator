@@ -1,6 +1,6 @@
            Electrical cable section calculator
                       
-                      Version 1.5.1
+                      Version 1.5.2
 
              This software was made by Popov Evgeniy Alekseyevich
 
@@ -42,3 +42,4 @@ Version history
 1.5: The small changes.
 1.5.0.1-1.5.0.8: The documentation has been updated.
 1.5.1: The source code was recompiled under Lazarus 4.0 RC1.
+1.5.2: The source code was recompiled under Lazarus 4.0 RC3.
