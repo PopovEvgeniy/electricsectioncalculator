@@ -78,14 +78,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="42"/>
-        <CursorPos X="22" Y="59"/>
+        <TopLine Value="51"/>
+        <CursorPos X="64" Y="60"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
     </Units>
-    <JumpHistory Count="25" HistoryIndex="24">
+    <JumpHistory Count="23" HistoryIndex="22">
       <Position1>
         <Filename Value="electricsectioncalculatorcode.pas"/>
         <Caret Line="60" Column="57" TopLine="50"/>
@@ -96,55 +96,55 @@
       </Position2>
       <Position3>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="60" Column="64" TopLine="65"/>
+        <Caret Line="68" Column="13" TopLine="58"/>
       </Position3>
       <Position4>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="68" Column="13" TopLine="58"/>
+        <Caret Line="160" Column="13" TopLine="65"/>
       </Position4>
       <Position5>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="160" Column="13" TopLine="65"/>
+        <Caret Line="71" Column="13" TopLine="60"/>
       </Position5>
       <Position6>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="71" Column="13" TopLine="60"/>
+        <Caret Line="87" Column="13" TopLine="74"/>
       </Position6>
       <Position7>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="87" Column="13" TopLine="74"/>
+        <Caret Line="72" Column="19" TopLine="62"/>
       </Position7>
       <Position8>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="72" Column="19" TopLine="62"/>
+        <Caret Line="88" Column="13" TopLine="69"/>
       </Position8>
       <Position9>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="88" Column="13" TopLine="69"/>
+        <Caret Line="160" Column="144" TopLine="143"/>
       </Position9>
       <Position10>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="160" Column="144" TopLine="143"/>
+        <Caret Line="89" Column="13" TopLine="74"/>
       </Position10>
       <Position11>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="89" Column="13" TopLine="74"/>
+        <Caret Line="160" Column="185" TopLine="143"/>
       </Position11>
       <Position12>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="160" Column="185" TopLine="143"/>
+        <Caret Line="89" Column="21" TopLine="71"/>
       </Position12>
       <Position13>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="89" Column="21" TopLine="71"/>
+        <Caret Line="150" Column="177" TopLine="150"/>
       </Position13>
       <Position14>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="77" Column="13" TopLine="99"/>
+        <Caret Line="77" Column="13" TopLine="66"/>
       </Position14>
       <Position15>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="150" Column="177" TopLine="150"/>
+        <Caret Line="160" Column="137" TopLine="150"/>
       </Position15>
       <Position16>
         <Filename Value="electricsectioncalculatorcode.pas"/>
@@ -152,40 +152,32 @@
       </Position16>
       <Position17>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="160" Column="137" TopLine="150"/>
+        <Caret Line="130" Column="177" TopLine="120"/>
       </Position17>
       <Position18>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="77" Column="13" TopLine="66"/>
+        <Caret Line="140" Column="177" TopLine="130"/>
       </Position18>
       <Position19>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="130" Column="177" TopLine="120"/>
+        <Caret Line="77" Column="13" TopLine="68"/>
       </Position19>
       <Position20>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="140" Column="177" TopLine="130"/>
+        <Caret Line="160" Column="88" TopLine="143"/>
       </Position20>
       <Position21>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="77" Column="13" TopLine="68"/>
+        <Caret Line="70" Column="26" TopLine="60"/>
       </Position21>
       <Position22>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="160" Column="88" TopLine="143"/>
+        <Caret Line="80" Column="25" TopLine="65"/>
       </Position22>
       <Position23>
         <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="70" Column="26" TopLine="60"/>
-      </Position23>
-      <Position24>
-        <Filename Value="electricsectioncalculatorcode.pas"/>
-        <Caret Line="80" Column="25" TopLine="65"/>
-      </Position24>
-      <Position25>
-        <Filename Value="electricsectioncalculatorcode.pas"/>
         <Caret Line="90" Column="25" TopLine="80"/>
-      </Position25>
+      </Position23>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

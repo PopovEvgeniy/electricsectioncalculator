@@ -57,7 +57,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='Electrical cable section calculator';
- MainWindow.Caption:='Electrical cable section calculator 1.5.2';
+ MainWindow.Caption:='Electrical cable section calculator 1.5.3';
  MainWindow.BorderStyle:=bsDialog;
  MainWindow.Font.Name:=Screen.MenuFont.Name;
  MainWindow.Font.Size:=14;

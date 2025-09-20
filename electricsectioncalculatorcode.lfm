@@ -6,6 +6,7 @@ object MainWindow: TMainWindow
   Caption = 'Electrical cable section calculator'
   ClientHeight = 269
   ClientWidth = 396
+  LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
   object LengthField: TLabeledEdit
     Left = 200
