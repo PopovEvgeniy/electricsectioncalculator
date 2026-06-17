@@ -26,14 +26,15 @@ type
     procedure CalculateButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LengthFieldChange(Sender: TObject);
-    procedure LengthFieldKeyPress(Sender: TObject; var Key: char);
     procedure PowerFieldChange(Sender: TObject);
-    procedure PowerFieldKeyPress(Sender: TObject; var Key: char);
     procedure ResistanceFieldChange(Sender: TObject);
-    procedure ResistanceFieldKeyPress(Sender: TObject; var Key: char);
     procedure AmperageFieldChange(Sender: TObject);
+    procedure LengthFieldKeyPress(Sender: TObject; var Key: char);
+    procedure PowerFieldKeyPress(Sender: TObject; var Key: char);
+    procedure ResistanceFieldKeyPress(Sender: TObject; var Key: char);
     procedure AmperageFieldKeyPress(Sender: TObject; var Key: char);
   private
+    function check_field():boolean;
     procedure window_setup();
     procedure interface_setup();
     procedure language_setup();
@@ -50,7 +51,7 @@ implementation
 
 function calculate_section(const measures:extended;const resistance:extended;const amperage:extended;const power:extended): extended;
 begin
- calculate_section:=(measures*resistance*amperage*amperage)/power;
+ Result:=(measures*resistance*amperage*amperage)/power;
 end;
 
 procedure restrict_input(var key:char);
@@ -66,10 +67,15 @@ begin
 
 end;
 
+function TMainWindow.check_field():boolean;
+begin
+ Result:=(Self.LengthField.Text<>'') and (Self.PowerField.Text<>'') and (Self.ResistanceField.Text<>'') and (Self.AmperageField.Text<>'');
+end;
+
 procedure TMainWindow.window_setup();
 begin
  Application.Title:='Electrical cable section calculator';
- Self.Caption:='Electrical cable section calculator 1.5.7';
+ Self.Caption:='Electrical cable section calculator 1.5.8';
  Self.BorderStyle:=bsDialog;
  Self.Font.Name:=Screen.MenuFont.Name;
  Self.Font.Size:=14;
@@ -131,7 +137,22 @@ end;
 
 procedure TMainWindow.LengthFieldChange(Sender: TObject);
 begin
- Self.CalculateButton.Enabled:=(Self.LengthField.Text<>'') and (Self.PowerField.Text<>'') and (Self.ResistanceField.Text<>'') and (Self.AmperageField.Text<>'');
+ Self.CalculateButton.Enabled:=Self.check_field();
+end;
+
+procedure TMainWindow.PowerFieldChange(Sender: TObject);
+begin
+ Self.CalculateButton.Enabled:=Self.check_field();
+end;
+
+procedure TMainWindow.ResistanceFieldChange(Sender: TObject);
+begin
+ Self.CalculateButton.Enabled:=Self.check_field();
+end;
+
+procedure TMainWindow.AmperageFieldChange(Sender: TObject);
+begin
+ Self.CalculateButton.Enabled:=Self.check_field();
 end;
 
 procedure TMainWindow.LengthFieldKeyPress(Sender: TObject; var Key: char);
@@ -139,29 +160,14 @@ begin
  restrict_input(Key);
 end;
 
-procedure TMainWindow.PowerFieldChange(Sender: TObject);
-begin
- Self.CalculateButton.Enabled:=(Self.LengthField.Text<>'') and (Self.PowerField.Text<>'') and (Self.ResistanceField.Text<>'') and (Self.AmperageField.Text<>'');
-end;
-
 procedure TMainWindow.PowerFieldKeyPress(Sender: TObject; var Key: char);
 begin
  restrict_input(Key);
 end;
 
-procedure TMainWindow.ResistanceFieldChange(Sender: TObject);
-begin
- Self.CalculateButton.Enabled:=(Self.LengthField.Text<>'') and (Self.PowerField.Text<>'') and (Self.ResistanceField.Text<>'') and (Self.AmperageField.Text<>'');
-end;
-
 procedure TMainWindow.ResistanceFieldKeyPress(Sender: TObject; var Key: char);
 begin
  restrict_input(Key);
-end;
-
-procedure TMainWindow.AmperageFieldChange(Sender: TObject);
-begin
- Self.CalculateButton.Enabled:=(Self.LengthField.Text<>'') and (Self.PowerField.Text<>'') and (Self.ResistanceField.Text<>'') and (Self.AmperageField.Text<>'');
 end;
 
 procedure TMainWindow.AmperageFieldKeyPress(Sender: TObject; var Key: char);
