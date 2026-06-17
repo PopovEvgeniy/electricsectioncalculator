@@ -1,12 +1,16 @@
 unit electricsectioncalculatorcode;
 
-{$mode objfpc}{$H+}
+{
+ This sofware was made by Popov Evgeniy Alekseyevich.
+ It is distributed under the GNU GENERAL PUBLIC LICENSE (Version 2 or higher).
+}
+
+{$mode objfpc}
+{$H+}
 
 interface
 
-uses
-  Classes, SysUtils, Forms, Controls, Dialogs, ExtCtrls,
-  StdCtrls, LCLType;
+uses Classes, SysUtils, Forms, Controls, Dialogs, ExtCtrls, StdCtrls, LCLType;
 
 type
 
@@ -30,7 +34,10 @@ type
     procedure AmperageFieldChange(Sender: TObject);
     procedure AmperageFieldKeyPress(Sender: TObject; var Key: char);
   private
-    { private declarations }
+    procedure window_setup();
+    procedure interface_setup();
+    procedure language_setup();
+    procedure setup();
   public
     { public declarations }
   end; 
@@ -41,11 +48,16 @@ implementation
 
 {$R *.lfm}
 
+function calculate_section(const measures:extended;const resistance:extended;const amperage:extended;const power:extended): extended;
+begin
+ calculate_section:=(measures*resistance*amperage*amperage)/power;
+end;
+
 procedure restrict_input(var key:char);
 begin
- if (ord(key)<ord('0')) or (ord(key)>ord('9')) then
+ if not (key in ['0'..'9']) then
  begin
-  if (key<>'.') or (key<>',') then
+  if not (key in [','..'.']) then
   begin
    if ord(key)<>VK_BACK then key:=#0;
   end;
@@ -54,80 +66,72 @@ begin
 
 end;
 
-procedure window_setup();
+procedure TMainWindow.window_setup();
 begin
  Application.Title:='Electrical cable section calculator';
- MainWindow.Caption:='Electrical cable section calculator 1.5.3';
- MainWindow.BorderStyle:=bsDialog;
- MainWindow.Font.Name:=Screen.MenuFont.Name;
- MainWindow.Font.Size:=14;
+ Self.Caption:='Electrical cable section calculator 1.5.7';
+ Self.BorderStyle:=bsDialog;
+ Self.Font.Name:=Screen.MenuFont.Name;
+ Self.Font.Size:=14;
 end;
 
-procedure interface_setup();
+procedure TMainWindow.interface_setup();
 begin
- MainWindow.CalculateButton.ShowHint:=False;
- MainWindow.CalculateButton.Enabled:=False;
- MainWindow.SectionField.Enabled:=False;
- MainWindow.LengthField.LabelPosition:=lpLeft;
- MainWindow.PowerField.LabelPosition:=MainWindow.LengthField.LabelPosition;
- MainWindow.ResistanceField.LabelPosition:=MainWindow.LengthField.LabelPosition;
- MainWindow.AmperageField.LabelPosition:=MainWindow.LengthField.LabelPosition;
- MainWindow.SectionField.LabelPosition:=MainWindow.LengthField.LabelPosition;
- MainWindow.LengthField.Text:='';
- MainWindow.PowerField.Text:=MainWindow.LengthField.Text;
- MainWindow.ResistanceField.Text:=MainWindow.LengthField.Text;
- MainWindow.AmperageField.Text:=MainWindow.LengthField.Text;
- MainWindow.SectionField.Text:=MainWindow.LengthField.Text;
+ Self.CalculateButton.ShowHint:=False;
+ Self.CalculateButton.Enabled:=False;
+ Self.SectionField.Enabled:=False;
+ Self.LengthField.LabelPosition:=lpLeft;
+ Self.PowerField.LabelPosition:=lpLeft;
+ Self.ResistanceField.LabelPosition:=lpLeft;
+ Self.AmperageField.LabelPosition:=lpLeft;
+ Self.SectionField.LabelPosition:=lpLeft;
+ Self.LengthField.Text:='';
+ Self.PowerField.Text:='';
+ Self.ResistanceField.Text:='';
+ Self.AmperageField.Text:='';
+ Self.SectionField.Text:='';
 end;
 
-procedure language_setup();
+procedure TMainWindow.language_setup();
 begin
- MainWindow.CalculateButton.Caption:='Calculate';
- MainWindow.LengthField.EditLabel.Caption:='Length in mm';
- MainWindow.PowerField.EditLabel.Caption:='Power in watts';
- MainWindow.ResistanceField.EditLabel.Caption:='Resistance in ohms';
- MainWindow.AmperageField.EditLabel.Caption:='Amperage in amperes';
- MainWindow.SectionField.EditLabel.Caption:='Electric cable section';
+ Self.CalculateButton.Caption:='Calculate';
+ Self.LengthField.EditLabel.Caption:='Length in mm';
+ Self.PowerField.EditLabel.Caption:='Power in watts';
+ Self.ResistanceField.EditLabel.Caption:='Resistance in ohms';
+ Self.AmperageField.EditLabel.Caption:='Amperage in amperes';
+ Self.SectionField.EditLabel.Caption:='Electric cable section';
 end;
 
-procedure setup();
+procedure TMainWindow.setup();
 begin
- window_setup();
- interface_setup();
- language_setup();
+ Self.window_setup();
+ Self.interface_setup();
+ Self.language_setup();
 end;
 
 { TMainWindow }
 
 procedure TMainWindow.FormCreate(Sender: TObject);
 begin
- setup();
-end;
-
-function calculate_section(const measures:extended;const resistance:extended;const amperage:extended;const power:extended): extended;
-begin
- calculate_section:=(measures*resistance*amperage*amperage)/power;
+ Self.setup();
 end;
 
 procedure TMainWindow.CalculateButtonClick(Sender: TObject);
-var section:double;
+var section:extended;
 begin
- MainWindow.SectionField.Text:='';
- if StrToFloat(MainWindow.PowerField.Text)=0 then
- begin
-  ShowMessage('Invalid power');
- end
- else
- begin
+ try
   section:=calculate_section(StrToFloat(LengthField.Text),StrToFloat(ResistanceField.Text),StrToFloat(AmperageField.Text),StrToFloat(PowerField.Text));
-  MainWindow.SectionField.Text:=FloatToStr(section);
+  Self.SectionField.Text:=FloatToStr(section);
+ except
+  ShowMessage('You set an invalid value');
+  Self.SectionField.Text:='';
  end;
 
 end;
 
 procedure TMainWindow.LengthFieldChange(Sender: TObject);
 begin
- MainWindow.CalculateButton.Enabled:=(MainWindow.LengthField.Text<>'') and (MainWindow.PowerField.Text<>'') and (MainWindow.ResistanceField.Text<>'') and (MainWindow.AmperageField.Text<>'');
+ Self.CalculateButton.Enabled:=(Self.LengthField.Text<>'') and (Self.PowerField.Text<>'') and (Self.ResistanceField.Text<>'') and (Self.AmperageField.Text<>'');
 end;
 
 procedure TMainWindow.LengthFieldKeyPress(Sender: TObject; var Key: char);
@@ -137,7 +141,7 @@ end;
 
 procedure TMainWindow.PowerFieldChange(Sender: TObject);
 begin
- MainWindow.CalculateButton.Enabled:=(MainWindow.LengthField.Text<>'') and (MainWindow.PowerField.Text<>'') and (MainWindow.ResistanceField.Text<>'') and (MainWindow.AmperageField.Text<>'');
+ Self.CalculateButton.Enabled:=(Self.LengthField.Text<>'') and (Self.PowerField.Text<>'') and (Self.ResistanceField.Text<>'') and (Self.AmperageField.Text<>'');
 end;
 
 procedure TMainWindow.PowerFieldKeyPress(Sender: TObject; var Key: char);
@@ -147,7 +151,7 @@ end;
 
 procedure TMainWindow.ResistanceFieldChange(Sender: TObject);
 begin
- MainWindow.CalculateButton.Enabled:=(MainWindow.LengthField.Text<>'') and (MainWindow.PowerField.Text<>'') and (MainWindow.ResistanceField.Text<>'') and (MainWindow.AmperageField.Text<>'');
+ Self.CalculateButton.Enabled:=(Self.LengthField.Text<>'') and (Self.PowerField.Text<>'') and (Self.ResistanceField.Text<>'') and (Self.AmperageField.Text<>'');
 end;
 
 procedure TMainWindow.ResistanceFieldKeyPress(Sender: TObject; var Key: char);
@@ -157,7 +161,7 @@ end;
 
 procedure TMainWindow.AmperageFieldChange(Sender: TObject);
 begin
- MainWindow.CalculateButton.Enabled:=(MainWindow.LengthField.Text<>'') and (MainWindow.PowerField.Text<>'') and (MainWindow.ResistanceField.Text<>'') and (MainWindow.AmperageField.Text<>'');
+ Self.CalculateButton.Enabled:=(Self.LengthField.Text<>'') and (Self.PowerField.Text<>'') and (Self.ResistanceField.Text<>'') and (Self.AmperageField.Text<>'');
 end;
 
 procedure TMainWindow.AmperageFieldKeyPress(Sender: TObject; var Key: char);

@@ -14,7 +14,7 @@
     <i18n>
       <EnableI18N LFM="False"/>
     </i18n>
-    <BuildModes Count="2" Active="Windows 64 bit">
+    <BuildModes Count="2" Active="Windows 32 bit">
       <Item1 Name="Windows 32 bit" Default="True"/>
       <Item2 Name="Windows 64 bit">
         <CompilerOptions>
@@ -38,6 +38,7 @@
           <Linking>
             <Debugging>
               <GenerateDebugInfo Value="False"/>
+              <RunWithoutDebug Value="True"/>
               <UseLineInfoUnit Value="False"/>
             </Debugging>
             <LinkSmart Value="True"/>
@@ -78,14 +79,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="51"/>
-        <CursorPos X="64" Y="60"/>
+        <TopLine Value="46"/>
+        <CursorPos X="5" Y="54"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
     </Units>
-    <JumpHistory Count="23" HistoryIndex="22">
+    <JumpHistory Count="26" HistoryIndex="25">
       <Position1>
         <Filename Value="electricsectioncalculatorcode.pas"/>
         <Caret Line="60" Column="57" TopLine="50"/>
@@ -178,6 +179,18 @@
         <Filename Value="electricsectioncalculatorcode.pas"/>
         <Caret Line="90" Column="25" TopLine="80"/>
       </Position23>
+      <Position24>
+        <Filename Value="electricsectioncalculatorcode.pas"/>
+        <Caret Line="62" Column="2" TopLine="55"/>
+      </Position24>
+      <Position25>
+        <Filename Value="electricsectioncalculatorcode.pas"/>
+        <Caret Line="68" Column="11" TopLine="55"/>
+      </Position25>
+      <Position26>
+        <Filename Value="electricsectioncalculatorcode.pas"/>
+        <Caret Line="53" Column="9" TopLine="43"/>
+      </Position26>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
@@ -202,6 +215,7 @@
     <Linking>
       <Debugging>
         <GenerateDebugInfo Value="False"/>
+        <RunWithoutDebug Value="True"/>
         <UseLineInfoUnit Value="False"/>
       </Debugging>
       <LinkSmart Value="True"/>
