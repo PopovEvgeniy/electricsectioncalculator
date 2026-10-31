@@ -1,6 +1,6 @@
            Electrical cable section calculator
                       
-                      Version 1.5.8
+                      Version 1.5.8.1
 
              This software was made by Popov Evgeniy Alekseyevich
 
@@ -32,9 +32,9 @@ Version history.
 1.4: Russian localization has been removed.
 1.4.1-1.4.5: The small changes.
 1.4.6: 64-bit support has been added.
-1.4.7: The user interface has improved.
-1.4.8: A small bug has been fixed.
-1.4.9: The project name has changed.
+1.4.7: The user interface has been improved.
+1.4.8: The small bug has been fixed.
+1.4.9: The project name has been changed.
 1.5: The small changes.
 1.5.0.1-1.5.0.8: The documentation has been updated.
 1.5.1: The source code was recompiled under Lazarus 4.0 RC1.
@@ -42,5 +42,6 @@ Version history.
 1.5.2.1: The documentation has been updated.
 1.5.3: The source code was recompiled under Lazarus 4.2.
 1.5.4-1.5.6: The small changes.
-1.5.7: A small bug has been fixed.
+1.5.7: The small bug has been fixed.
 1.5.8: The small changes.
+1.5.8.1: The documentation has been updated.
